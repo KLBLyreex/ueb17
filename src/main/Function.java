@@ -3,13 +3,16 @@ package main;
 
 public class Function {
 
+
     public static void main(String[] args) {
         Function ff = new Function();
-        ff.bi();
+        ff.bi(0, 20);
         System.out.println();
-        ff.bii();
+        ff.bii(0, 20);
         System.out.println();
-        ff.biii();
+        ff.biii(0, 20);
+        System.out.println();
+        ff.biv(0, 20);
         System.out.println();
     }
 
@@ -20,7 +23,7 @@ public class Function {
         }
     }
 
-    public void bi() {
+    public void bi(int i, int j) {
         MyFunction xQuadratAnonym = new MyFunction() {
             @Override
             public int apply(int x) {
@@ -29,18 +32,30 @@ public class Function {
         };
 
         System.out.println("X Quadrat als Anonyme Klasse: ");
-        applyAndPrint(xQuadratAnonym, 1, 10);
+        applyAndPrint(xQuadratAnonym, i, j);
 
         System.out.println("\nX Quadrat als Lambda Ausdruck: ");
-        MyFunction xQuadratLambda = i -> i * i;
-        applyAndPrint(xQuadratLambda, 1, 10);
+        MyFunction xQuadratLambda = x -> x * x;
+        applyAndPrint(xQuadratLambda, i, j);
     }
 
-    public void bii() {
+    public void bii(int i, int j) {
+        MyFunction facAnonym = new MyFunction() {
+            @Override
+            public int apply(int x) {
+                int ergebnis = 1;
+                for (int i = 1; i <= x; i++) {
+                    ergebnis = ergebnis * i;
+                }
+                return ergebnis;
+            }
+        };
 
+        System.out.println("Fakultaet als Anonyme Klasse: ");
+        applyAndPrint(facAnonym, i, j);
     }
 
-    public void biii() {
+    public void biii(int i, int j) {
         MyFunction XHochXPlus1 = new MyFunction() {
             @Override
             public int apply(int x) {
@@ -52,17 +67,36 @@ public class Function {
             }
         };
         System.out.println("X Hoch X Plus 1 als Anonyme Klasse: ");
-        applyAndPrint(XHochXPlus1, 1, 10);
+        applyAndPrint(XHochXPlus1, i, j);
 
         System.out.println("\nX Hoch X Plus 1 als Lambda Ausdruck: ");
         MyFunction xhochxPlus1Lambda = x -> {
             int erg = x;
-            for (int i = 1; i <= x + 1; i++) {
+            for (int k = 1; k <= x + 1; k++) {
                 erg *= x;
             }
             return erg;
         };
-        applyAndPrint(xhochxPlus1Lambda, 1, 10);
+        applyAndPrint(xhochxPlus1Lambda, i, j);
+    }
+
+    public void biv(int i, int j){
+        MyFunction fib = new MyFunction() {
+            @Override
+            public int apply(int x) {
+                if (x <= 2){
+                    return (x > 0) ? 1 : 0;
+                }else{
+                    return apply(x-2)+apply(x-1);
+                }
+            }
+        };
+        System.out.println("Fibonacci als Anonyme Klasse: ");
+        applyAndPrint(fib, i, j);
+
+     //   MyFunction fibLambda = n -> {
+      //      return n == 0 || n == 1 || n == 2 ? 1 : fibLambda.apply(n - 1) + fibLambda.apply(n - 2);
+       // };
     }
 
 }
