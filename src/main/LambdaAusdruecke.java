@@ -1,6 +1,7 @@
 package main;
 
 import java.util.function.IntPredicate;
+import java.lang.Math.*;
 
 public class LambdaAusdruecke {
 
@@ -20,13 +21,8 @@ public class LambdaAusdruecke {
         return ergebnis;
     };
 
-    public static MyFunction xhochxPlus1Lambda = x -> {
-        int erg = x;
-        for (int i = 1; i <= x + 1; i++) {
-            erg *= x;
-        }
-        return erg;
-    };
+    public static MyFunction xhochxPlus1Lambda = x -> (int)Math.pow(x, x+1);
+
 
     public static MyFunction fibonacciLambda = x -> {
         int fibo1 = 0;

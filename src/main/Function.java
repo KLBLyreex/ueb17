@@ -78,11 +78,7 @@ public class Function {
         MyFunction XHochXPlus1 = new MyFunction() {
             @Override
             public int apply(int x) {
-                int erg = x;
-                for (int i = 1; i <= x + 1; i++) {
-                    erg *= x;
-                }
-                return erg;
+                return (int)Math.pow(x, x+1);
             }
         };
         System.out.println("X Hoch X Plus 1 als Anonyme Klasse: ");
