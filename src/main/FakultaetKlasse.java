@@ -3,9 +3,9 @@ package main;
 public class FakultaetKlasse {
 
     public static int FakultaetBerechnen(int x) {
-        int ergebnis = x;
+        int ergebnis = 1;
         for (int i = 1; i <= x; i++) {
-            ergebnis *= x;
+            ergebnis *= i;
         }
         return ergebnis;
     }

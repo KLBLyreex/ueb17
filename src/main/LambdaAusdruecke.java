@@ -5,17 +5,17 @@ import java.util.function.IntPredicate;
 public class LambdaAusdruecke {
 
     public static MyFunction xFakultaetLambda = x -> {
-        int ergebnis = x;
+        int ergebnis = 1;
         for (int i = 1; i <= x; i++) {
-            ergebnis *= x;
+            ergebnis *= i;
         }
         return ergebnis;
     };
 
     public static MyFunctionErweiterung xFakultaetLambda2 = x -> {
-        int ergebnis = x;
+        int ergebnis = 1;
         for(int i = 1; i <= x; i++){
-            ergebnis *= x;
+            ergebnis *= i;
         }
         return ergebnis;
     };

@@ -20,9 +20,9 @@ public class Function {
 
     public static class FakultaetNestedClass {
         public static int FakultaetBerechnen(int x) {
-            int ergebnis = x;
+            int ergebnis = 1;
             for (int i = 1; i <= x; i++) {
-                ergebnis *= x;
+                ergebnis *= i;
             }
             return ergebnis;
         }
@@ -53,9 +53,9 @@ public class Function {
         MyFunction xFakultaet = new MyFunction() {
             @Override
             public int apply(int x) {
-                int ergebnis = x;
+                int ergebnis = 1;
                 for (int i = 1; i <= x; i++) {
-                    ergebnis *= x;
+                    ergebnis *= i;
                 }
                 return ergebnis;
             }
