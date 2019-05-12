@@ -8,17 +8,17 @@ public class Function {
     private int i;
     private int j;
 
-    public Function(int i, int j){
+    public Function(int i, int j) {
         this.i = i;
         this.j = j;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Function ff = new Function(1, 10);
         ff.bii();
     }
 
-    public static class FakultaetNestedClass{
+    public static class FakultaetNestedClass {
         public static int FakultaetBerechnen(int x) {
             int ergebnis = x;
             for (int i = 1; i <= x; i++) {
@@ -99,8 +99,8 @@ public class Function {
                 int fibo1 = 0;
                 int fibo2 = 1;
                 int fibo3 = 0;
-                for(int i = 1; i <= x; i++){
-                    fibo3 = fibo1+fibo2;
+                for (int i = 1; i <= x; i++) {
+                    fibo3 = fibo1 + fibo2;
                     fibo2 = fibo1;
                     fibo1 = fibo3;
                 }
@@ -121,12 +121,17 @@ public class Function {
         }
     };
 
-    public void aufgabeE(){
-
+    public void aufgabeE() {
+        System.out.println("Lambda-Ausdruck fuer die Quadrat Zahl von geraden Zahlen: ");
+        applyAndPrint(LambdaAusdruecke.xQuadratLambda2.conditionateInput(LambdaAusdruecke.even), i, j);
     }
 
-    public void aufgabeF(){
-        
+    public void aufgabeF() {
+        System.out.println("Lambda-Ausdruck bei der die Fakultaet gerade ist: ");
+        applyAndPrint(LambdaAusdruecke.xFakultaetLambda2.condiitionateOutput(LambdaAusdruecke.even), i, j);
+
+        System.out.println("Lambda-Ausdruck bei der die Fakultaet ungerade ist: ");
+        applyAndPrint(LambdaAusdruecke.xFakultaetLambda2.condiitionateOutput(odd), i, j);
     }
 
 }
