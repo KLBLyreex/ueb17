@@ -27,7 +27,9 @@ public class FunctionDialog {
     }
 
     private void start(){
-        function = null;
+        int i = einlesenZahlenUnten();
+        int j = einlesenZahlenOben();
+        function = new Function(i, j);
         int menu = -1;
 
         while(menu != ENDE){
@@ -64,16 +66,16 @@ public class FunctionDialog {
 
     private void ausfuehren(int funktion){
         if (funktion == Xhoch2){
-            function = bi();
+            function.bi();
         }else
         if (funktion == facultaet){
-            function = bii();
+            function.bii();
         }else
         if (funktion == XhochX1){
-            function = biii();
+            function.biii();
         }else
         if (funktion == fibonacci){
-            function = biv();
+            function.iv();
          }else{
             System.out.println("Funktion steht nicht zur wahl!");
         }

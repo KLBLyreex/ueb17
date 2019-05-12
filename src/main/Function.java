@@ -3,11 +3,16 @@ package main;
 
 public class Function {
 
-    int i = 1;
-    int j = 10;
+    private int i;
+    private int j;
+
+    public Function(int i, int j){
+        this.i = i;
+        this.j = j;
+    }
 
     public static void main(String[] args) {
-        Function ff = new Function();
+        Function ff = new Function(1, 10);
         ff.bi();
         System.out.println();
         ff.bii();
