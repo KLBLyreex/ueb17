@@ -4,7 +4,7 @@ import java.util.function.IntPredicate;
 
 public interface MyFunctionErweiterung extends MyFunction {
 
-    default MyFunctionErweiterung conditionateInput(IntPredicate ipred){
+    default public MyFunctionErweiterung conditionateInput(IntPredicate ipred){
         return (int value) -> {
             if(ipred.test(value)){
                 return apply(value);
@@ -14,7 +14,7 @@ public interface MyFunctionErweiterung extends MyFunction {
         };
     }
 
-    default MyFunctionErweiterung condiitionateOutput(IntPredicate iped){
+    default public MyFunctionErweiterung condiitionateOutput(IntPredicate iped){
         return (int value) -> {
             if(iped.test(apply(value))){
                 return apply(value);

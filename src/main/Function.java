@@ -1,6 +1,8 @@
 package main;
 
 
+import java.util.function.IntPredicate;
+
 public class Function {
 
     private int i;
@@ -11,15 +13,9 @@ public class Function {
         this.j = j;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Function ff = new Function(1, 10);
-        ff.bi();
-        System.out.println();
         ff.bii();
-        System.out.println();
-        ff.biii();
-        System.out.println();
-        ff.iv();
     }
 
     public static class FakultaetNestedClass{
@@ -31,7 +27,6 @@ public class Function {
             return ergebnis;
         }
     }
-
 
     private void applyAndPrint(MyFunction myFunction, int i, int j) {
         for (int x = i; x <= j; x++) {
@@ -51,8 +46,7 @@ public class Function {
         applyAndPrint(xQuadratAnonym, i, j);
 
         System.out.println("\nX Quadrat als Lambda Ausdruck: ");
-        MyFunction xQuadratLambda = i -> i * i;
-        applyAndPrint(xQuadratLambda, i, j);
+        applyAndPrint(LambdaAusdruecke.xQuadratLambda, i, j);
     }
 
     public void bii() {
@@ -77,13 +71,7 @@ public class Function {
         System.out.println("X Fakultaet von " + j + " = " + FakultaetNestedClass.FakultaetBerechnen(j));
 
         System.out.println("\nX Fakultaet als Lambda-Ausdruck: ");
-        MyFunction xFakultaetLambda = x -> {
-            int ergebnis = x;
-            for (int i = 1; i <= x; i++) {
-                ergebnis *= x;
-            }
-            return ergebnis;
-        };
+        applyAndPrint(LambdaAusdruecke.xFakultaetLambda, i, j);
     }
 
     public void biii() {
@@ -101,14 +89,7 @@ public class Function {
         applyAndPrint(XHochXPlus1, i, j);
 
         System.out.println("\nX Hoch X Plus 1 als Lambda Ausdruck: ");
-        MyFunction xhochxPlus1Lambda = x -> {
-            int erg = x;
-            for (int i = 1; i <= x + 1; i++) {
-                erg *= x;
-            }
-            return erg;
-        };
-        applyAndPrint(xhochxPlus1Lambda, i, j);
+        applyAndPrint(LambdaAusdruecke.xhochxPlus1Lambda, i, j);
     }
 
     public void iv() {
@@ -130,18 +111,22 @@ public class Function {
         System.out.println("Fibonacci-Folge als Anonyme Klasse: ");
         applyAndPrint(fibonacciAnonym, i, j);
         System.out.println("\nFibonacci-Folge als Lambda Ausdruck: ");
-        MyFunction fibonacciLambda = x -> {
-            int fibo1 = 0;
-            int fibo2 = 0;
-            int fibo3 = 0;
-            for(int i = 1; i <= x; i++){
-                fibo3 = fibo1+fibo2;
-                fibo2 = fibo1;
-                fibo1 = fibo3;
-            }
-            return fibo3;
-        };
-        applyAndPrint(fibonacciLambda, i, j);
+        applyAndPrint(LambdaAusdruecke.fibonacciLambda, i, j);
+    }
+
+    IntPredicate odd = new IntPredicate() {
+        @Override
+        public boolean test(int value) {
+            return value % 2 == 1;
+        }
+    };
+
+    public void aufgabeE(){
+
+    }
+
+    public void aufgabeF(){
+        
     }
 
 }
