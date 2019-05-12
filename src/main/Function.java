@@ -3,17 +3,28 @@ package main;
 
 public class Function {
 
+    int i = 1;
+    int j = 10;
 
     public static void main(String[] args) {
         Function ff = new Function();
-        ff.bi(0, 20);
+        ff.bi();
         System.out.println();
-        ff.bii(0, 20);
+        ff.bii();
         System.out.println();
-        ff.biii(0, 20);
+        ff.biii();
         System.out.println();
-        ff.biv(0, 20);
-        System.out.println();
+        ff.iv();
+    }
+
+    public static class FakultaetNestedClass{
+        public static int FakultaetBerechnen(int x) {
+            int ergebnis = x;
+            for (int i = 1; i <= x; i++) {
+                ergebnis *= x;
+            }
+            return ergebnis;
+        }
     }
 
 
@@ -23,7 +34,7 @@ public class Function {
         }
     }
 
-    public void bi(int i, int j) {
+    public void bi() {
         MyFunction xQuadratAnonym = new MyFunction() {
             @Override
             public int apply(int x) {
@@ -35,27 +46,42 @@ public class Function {
         applyAndPrint(xQuadratAnonym, i, j);
 
         System.out.println("\nX Quadrat als Lambda Ausdruck: ");
-        MyFunction xQuadratLambda = x -> x * x;
+        MyFunction xQuadratLambda = i -> i * i;
         applyAndPrint(xQuadratLambda, i, j);
     }
 
-    public void bii(int i, int j) {
-        MyFunction facAnonym = new MyFunction() {
+    public void bii() {
+        MyFunction xFakultaet = new MyFunction() {
             @Override
             public int apply(int x) {
-                int ergebnis = 1;
+                int ergebnis = x;
                 for (int i = 1; i <= x; i++) {
-                    ergebnis = ergebnis * i;
+                    ergebnis *= x;
                 }
                 return ergebnis;
             }
         };
 
-        System.out.println("Fakultaet als Anonyme Klasse: ");
-        applyAndPrint(facAnonym, i, j);
+        System.out.println("X Fakultaet als Anonyme Klasse: ");
+        applyAndPrint(xFakultaet, i, j);
+
+        System.out.println("\nX Fakultaet als Top Level Klasse: ");
+        System.out.println("X Fakultaet von " + j + " = " + FakultaetKlasse.FakultaetBerechnen(j));
+
+        System.out.println("\nX Fakultaet als Static Nested Class: ");
+        System.out.println("X Fakultaet von " + j + " = " + FakultaetNestedClass.FakultaetBerechnen(j));
+
+        System.out.println("\nX Fakultaet als Lambda-Ausdruck: ");
+        MyFunction xFakultaetLambda = x -> {
+            int ergebnis = x;
+            for (int i = 1; i <= x; i++) {
+                ergebnis *= x;
+            }
+            return ergebnis;
+        };
     }
 
-    public void biii(int i, int j) {
+    public void biii() {
         MyFunction XHochXPlus1 = new MyFunction() {
             @Override
             public int apply(int x) {
@@ -72,7 +98,7 @@ public class Function {
         System.out.println("\nX Hoch X Plus 1 als Lambda Ausdruck: ");
         MyFunction xhochxPlus1Lambda = x -> {
             int erg = x;
-            for (int k = 1; k <= x + 1; k++) {
+            for (int i = 1; i <= x + 1; i++) {
                 erg *= x;
             }
             return erg;
@@ -80,23 +106,37 @@ public class Function {
         applyAndPrint(xhochxPlus1Lambda, i, j);
     }
 
-    public void biv(int i, int j){
-        MyFunction fib = new MyFunction() {
+    public void iv() {
+        MyFunction fibonacciAnonym = new MyFunction() {
             @Override
             public int apply(int x) {
-                if (x <= 2){
-                    return (x > 0) ? 1 : 0;
-                }else{
-                    return apply(x-2)+apply(x-1);
+                int fibo1 = 0;
+                int fibo2 = 1;
+                int fibo3 = 0;
+                for(int i = 1; i <= x; i++){
+                    fibo3 = fibo1+fibo2;
+                    fibo2 = fibo1;
+                    fibo1 = fibo3;
                 }
+                return fibo3;
             }
         };
-        System.out.println("Fibonacci als Anonyme Klasse: ");
-        applyAndPrint(fib, i, j);
 
-     //   MyFunction fibLambda = n -> {
-      //      return n == 0 || n == 1 || n == 2 ? 1 : fibLambda.apply(n - 1) + fibLambda.apply(n - 2);
-       // };
+        System.out.println("Fibonacci-Folge als Anonyme Klasse: ");
+        applyAndPrint(fibonacciAnonym, i, j);
+        System.out.println("\nFibonacci-Folge als Lambda Ausdruck: ");
+        MyFunction fibonacciLambda = x -> {
+            int fibo1 = 0;
+            int fibo2 = 0;
+            int fibo3 = 0;
+            for(int i = 1; i <= x; i++){
+                fibo3 = fibo1+fibo2;
+                fibo2 = fibo1;
+                fibo1 = fibo3;
+            }
+            return fibo3;
+        };
+        applyAndPrint(fibonacciLambda, i, j);
     }
 
 }
