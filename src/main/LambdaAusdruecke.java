@@ -26,7 +26,7 @@ public class LambdaAusdruecke {
 
     public static MyFunction fibonacciLambda = x -> {
         int fibo1 = 0;
-        int fibo2 = 0;
+        int fibo2 = 1;
         int fibo3 = 0;
         for(int i = 1; i <= x; i++){
             fibo3 = fibo1+fibo2;
