@@ -3,7 +3,9 @@ package main;
 import java.util.function.IntPredicate;
 
 public class LambdaAusdruecke {
-
+    /**
+     * Berechnet die Fakultaet von x mit einem Lambda-Ausdruck
+     */
     public static MyFunction xFakultaetLambda = x -> {
         int ergebnis = 1;
         for (int i = 1; i <= x; i++) {
@@ -11,7 +13,9 @@ public class LambdaAusdruecke {
         }
         return ergebnis;
     };
-
+    /**
+     * Berechnet die Fakultaet von x mit einem Lambda-Ausdruck
+     */
     public static MyFunctionErweiterung xFakultaetLambda2 = x -> {
         int ergebnis = 1;
         for(int i = 1; i <= x; i++){
@@ -19,10 +23,14 @@ public class LambdaAusdruecke {
         }
         return ergebnis;
     };
-
+    /**
+     * Berechnet x^(x+1) mit einem Lambda-Ausdruck
+     */
     public static MyFunction xhochxPlus1Lambda = x -> (int)Math.pow(x, x+1);
 
-
+    /**
+     * Berechnet die Fibonacci Zahl mit einem Lambda-Ausdruck
+     */
     public static MyFunction fibonacciLambda = x -> {
         int fibo1 = 0;
         int fibo2 = 1;
