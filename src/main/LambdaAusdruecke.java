@@ -13,6 +13,7 @@ public class LambdaAusdruecke {
         }
         return ergebnis;
     };
+
     /**
      * Berechnet die Fakultaet von x mit einem Lambda-Ausdruck
      */
@@ -23,6 +24,7 @@ public class LambdaAusdruecke {
         }
         return ergebnis;
     };
+
     /**
      * Berechnet x^(x+1) mit einem Lambda-Ausdruck
      */
@@ -43,9 +45,18 @@ public class LambdaAusdruecke {
         return fibo3;
     };
 
+    /**
+     * Ueberprueft ob eine Zahl gerde ist
+     */
     public static IntPredicate even = x -> x % 2 == 0;
 
+    /**
+     * Berechnet x^2 mit einem Lambda-Ausdruck
+     */
     public static MyFunction xQuadratLambda = i -> i * i;
 
+    /**
+     * Berechnet x^2 mit einem Lambda-Ausdruck
+     */
     public static MyFunctionErweiterung xQuadratLambda2 = i -> i * i;
 }

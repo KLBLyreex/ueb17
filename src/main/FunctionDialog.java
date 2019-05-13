@@ -21,11 +21,19 @@ public class FunctionDialog {
     private static final String zahlEinlesen_unten = "Bitte geben Sie den Start an:";
     private static final String zahlEinlesen_oben = "Bitte geben Sie das Ende an:";
 
-
+    /**
+     * Ruf Methode start auf.
+     * @param args Beim Programmstart uebergebene Argumente
+     */
     public static void main(String[] args) {
         new FunctionDialog().start();
     }
 
+    /**
+     * Methode start Legt eine Function (function) an, führt die Funktion aus,
+     * die vom Nutzer in der Methode einlesenFunktion gewählt wurde.
+     * Sollte der Nutzer eine falsche Eingabe machen, wird diese hier gefangen.
+     */
     private void start(){
         int i = einlesenZahlenUnten();
         int j = einlesenZahlenOben();
@@ -43,6 +51,11 @@ public class FunctionDialog {
         }
     }
 
+    /**
+     * Methode einlesenFunktion Zeigt dem Nutzer eine Auswahl an Funktionen und ließt seine Wahl ein.
+     *
+     * @return Der Rückgabewert, Funktionswahl des Nutzers
+     */
     private int einlesenFunktion(){
         System.out.println(
                 "[" + Xhoch2 + "] " + Xhoch2_text + "\n"+
@@ -54,16 +67,30 @@ public class FunctionDialog {
         return input.nextInt();
     }
 
+    /**
+     * Methode liest die Untere-Schranke.
+     * @return Untere-Schranke
+     */
     private int einlesenZahlenUnten(){
         System.out.println(zahlEinlesen_unten);
         return input.nextInt();
     }
 
+    /**
+     * Methode liest die Obere-Schranke.
+     * @return Obere-Schranke
+     */
     private int einlesenZahlenOben(){
         System.out.println(zahlEinlesen_oben);
         return input.nextInt();
     }
 
+    /**
+     * Methode ausfuehren Bekommt die vom Nutzer gewählte Funktion von der Methode start übergeben
+     * und führt die zur Funktion gehörige Methode aus.
+     *
+     * @param funktion Funktionswahl des Nutzers
+     */
     private void ausfuehren(int funktion){
         if (funktion == Xhoch2){
             function.bi();
