@@ -3,21 +3,28 @@ package main;
 
 import java.util.function.IntPredicate;
 
+/**
+ * Klasse Function zur Ausfuerung verschiedener Funktionen mit Hilfe des Interfaces MyFunktion, auf verschiedene weisen
+ * implementiert.
+ */
 public class Function {
 
     private int i;
     private int j;
 
+    /**
+     * Konstruktor fuer Function
+     * @param i INTEGER Untere-Grenze
+     * @param j INTEGER Obere.Grenze
+     */
     public Function(int i, int j) {
         this.i = i;
         this.j = j;
     }
 
-    public static void main(String[] args) {
-        Function ff = new Function(1, 10);
-        ff.bii();
-    }
-
+    /**
+     * NestedClass zur Berechnung der Fakulteat
+     */
     public static class FakultaetNestedClass {
         public static int FakultaetBerechnen(int x) {
             int ergebnis = 1;
@@ -28,12 +35,22 @@ public class Function {
         }
     }
 
+    /**
+     * applyAndPrint ruft die Uebergebene Funktion fuer alle Werte zwischen i und j auf und gibt diese ueber die Konsole
+     * aus.
+     * @param myFunction Auszufuehrende Funktion
+     * @param i Untere-Grenze
+     * @param j Obere-Grenze
+     */
     private void applyAndPrint(MyFunction myFunction, int i, int j) {
         for (int x = i; x <= j; x++) {
             System.out.println(x + ": " + myFunction.apply(x));
         }
     }
 
+    /**
+     * xQuadrat berechnet fuer ein x, x^2
+     */
     public void bi() {
         MyFunction xQuadratAnonym = new MyFunction() {
             @Override
@@ -49,6 +66,9 @@ public class Function {
         applyAndPrint(LambdaAusdruecke.xQuadratLambda, i, j);
     }
 
+    /**
+     * xFakultaet berechnet die Fakultaet eines x.
+     */
     public void bii() {
         MyFunction xFakultaet = new MyFunction() {
             @Override
@@ -74,6 +94,9 @@ public class Function {
         applyAndPrint(LambdaAusdruecke.xFakultaetLambda, i, j);
     }
 
+    /**
+     * XHochXPlus1 berechnet x^(x+1) fuer einen uebergebene Zahl.
+     */
     public void biii() {
         MyFunction XHochXPlus1 = new MyFunction() {
             @Override
@@ -88,19 +111,19 @@ public class Function {
         applyAndPrint(LambdaAusdruecke.xhochxPlus1Lambda, i, j);
     }
 
+    /**
+     * fibonacci berechent die Fibonnaci Zahl einer uebergebenen Zahl
+     */
     public void iv() {
         MyFunction fibonacciAnonym = new MyFunction() {
             @Override
             public int apply(int x) {
-                int fibo1 = 0;
-                int fibo2 = 1;
-                int fibo3 = 0;
-                for (int i = 1; i <= x; i++) {
-                    fibo3 = fibo1 + fibo2;
-                    fibo2 = fibo1;
-                    fibo1 = fibo3;
-                }
-                return fibo3;
+                if (x<=0)
+                    return 0;
+                if (x==1)
+                    return 1;
+                else
+                    return apply(x-2)+apply(x-1);
             }
         };
 

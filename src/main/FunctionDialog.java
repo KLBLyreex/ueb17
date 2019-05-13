@@ -76,7 +76,10 @@ public class FunctionDialog {
         }else
         if (funktion == fibonacci){
             function.iv();
-         }else{
+        }else
+        if (funktion == ENDE){
+            System.out.println("ENDE!");
+        }else{
             System.out.println("Funktion steht nicht zur wahl!");
         }
     }

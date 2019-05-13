@@ -1,7 +1,6 @@
 package main;
 
 import java.util.function.IntPredicate;
-import java.lang.Math.*;
 
 public class LambdaAusdruecke {
 
