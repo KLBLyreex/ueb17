@@ -51,7 +51,7 @@ public class Function {
     /**
      * xQuadrat berechnet fuer ein x, x^2
      */
-    public void bi() {
+    public void xQuadrat() {
         MyFunction xQuadratAnonym = new MyFunction() {
             @Override
             public int apply(int x) {
@@ -69,8 +69,8 @@ public class Function {
     /**
      * xFakultaet berechnet die Fakultaet eines x.
      */
-    public void bii() {
-        MyFunction xFakultaet = new MyFunction() {
+    public void xFakulteat() {
+        MyFunction xFakultaetAnonym = new MyFunction() {
             @Override
             public int apply(int x) {
                 int ergebnis = 1;
@@ -82,7 +82,7 @@ public class Function {
         };
 
         System.out.println("X Fakultaet als Anonyme Klasse: ");
-        applyAndPrint(xFakultaet, i, j);
+        applyAndPrint(xFakultaetAnonym, i, j);
 
         System.out.println("\nX Fakultaet als Top Level Klasse: ");
         System.out.println("X Fakultaet von " + j + " = " + FakultaetKlasse.FakultaetBerechnen(j));
@@ -97,24 +97,24 @@ public class Function {
     /**
      * XHochXPlus1 berechnet x^(x+1) fuer einen uebergebene Zahl.
      */
-    public void biii() {
-        MyFunction XHochXPlus1 = new MyFunction() {
+    public void xHochXPlus1() {
+        MyFunction xHochXPlus1Anonym = new MyFunction() {
             @Override
             public int apply(int x) {
                 return (int)Math.pow(x, x+1);
             }
         };
         System.out.println("X Hoch X Plus 1 als Anonyme Klasse: ");
-        applyAndPrint(XHochXPlus1, i, j);
+        applyAndPrint(xHochXPlus1Anonym, i, j);
 
         System.out.println("\nX Hoch X Plus 1 als Lambda Ausdruck: ");
-        applyAndPrint(LambdaAusdruecke.xhochxPlus1Lambda, i, j);
+        applyAndPrint(LambdaAusdruecke.xHochXPlus1Lambda, i, j);
     }
 
     /**
      * fibonacci berechent die Fibonnaci Zahl einer uebergebenen Zahl
      */
-    public void iv() {
+    public void fibonacci() {
         MyFunction fibonacciAnonym = new MyFunction() {
             @Override
             public int apply(int x) {
@@ -140,6 +140,10 @@ public class Function {
         }
     };
 
+    public static void main(String[] args) {
+        Function ff = new Function(1,10);
+        ff.aufgabeF();
+    }
     public void aufgabeE() {
         System.out.println("Lambda-Ausdruck fuer die Quadrat Zahl von geraden Zahlen: ");
         applyAndPrint(LambdaAusdruecke.xQuadratLambda2.conditionateInput(LambdaAusdruecke.even), i, j);

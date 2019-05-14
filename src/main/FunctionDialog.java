@@ -1,5 +1,6 @@
 package main;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class FunctionDialog {
@@ -12,12 +13,16 @@ public class FunctionDialog {
     private static final int facultaet = 2;
     private static final int XhochX1 = 3;
     private static final int fibonacci = 4;
+    private static final int evenQuadrat = 5;
+    private static final int evenFakultaet = 6;
     private static final int ENDE = 0;
 
     private static final String Xhoch2_text = "f(x) = x^2";
     private static final String facultaet_text = "f(x) = x!";
     private static final String XhochX1_text = "f(x) = x^(x+1)";
     private static final String fibonacci_text = "f(x) = fib(x)";
+    private static final String evenQuadrat_text = "Quadratzahl fuer gerade Zahlen";
+    private static final String evenFakultaet_text = "Trennen Fakultaet einer Zahl in Gerade bzw. ungerade";
     private static final String zahlEinlesen_unten = "Bitte geben Sie den Start an:";
     private static final String zahlEinlesen_oben = "Bitte geben Sie das Ende an:";
 
@@ -35,15 +40,21 @@ public class FunctionDialog {
      * Sollte der Nutzer eine falsche Eingabe machen, wird diese hier gefangen.
      */
     private void start(){
-        int i = einlesenZahlenUnten();
-        int j = einlesenZahlenOben();
-        function = new Function(i, j);
+
         int menu = -1;
 
         while(menu != ENDE){
             try {
+                System.out.println("===============");
+                int i = einlesenZahlenUnten();
+                int j = einlesenZahlenOben();
+                function = new Function(i, j);
                 menu = einlesenFunktion();
                 ausfuehren(menu);
+            } catch (InputMismatchException mismatchException){
+                System.out.println("Ihre Eingabe hat einen Fehler im Program ausgelöst. Bitte überprüfen Sie Ihre Eingabe " +
+                        "und versuchen Sie es erneut.");
+                input.nextLine();
             } catch (Exception e){
                 System.out.println(e);
                 input.nextLine();
@@ -62,6 +73,8 @@ public class FunctionDialog {
                 "[" + facultaet + "] " + facultaet_text + "\n"+
                 "[" + XhochX1 + "] " + XhochX1_text + "\n"+
                 "[" + fibonacci + "] " + fibonacci_text + "\n"+
+                "[" + evenQuadrat + "] " + evenQuadrat_text + "\n"+
+                "[" + evenFakultaet + "] " + evenFakultaet_text + "\n"+
                 "[" + ENDE + "] " + "ENDE" + "\n"
         );
         return input.nextInt();
@@ -93,16 +106,22 @@ public class FunctionDialog {
      */
     private void ausfuehren(int funktion){
         if (funktion == Xhoch2){
-            function.bi();
+            function.xQuadrat();
         }else
         if (funktion == facultaet){
-            function.bii();
+            function.xFakulteat();
         }else
         if (funktion == XhochX1){
-            function.biii();
+            function.xHochXPlus1();
         }else
         if (funktion == fibonacci){
-            function.iv();
+            function.fibonacci();
+        }else
+        if (funktion == evenQuadrat){
+            function.aufgabeE();
+        }else
+        if (funktion == evenFakultaet){
+            function.aufgabeF();
         }else
         if (funktion == ENDE){
             System.out.println("ENDE!");

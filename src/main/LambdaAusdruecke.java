@@ -28,7 +28,7 @@ public class LambdaAusdruecke {
     /**
      * Berechnet x^(x+1) mit einem Lambda-Ausdruck
      */
-    public static MyFunction xhochxPlus1Lambda = x -> (int)Math.pow(x, x+1);
+    public static MyFunction xHochXPlus1Lambda = x -> (int)Math.pow(x, x+1);
 
     /**
      * Berechnet die Fibonacci Zahl mit einem Lambda-Ausdruck
@@ -49,6 +49,8 @@ public class LambdaAusdruecke {
      * Ueberprueft ob eine Zahl gerde ist
      */
     public static IntPredicate even = x -> x % 2 == 0;
+
+    public static IntPredicate odd = x -> x % 2 != 0;
 
     /**
      * Berechnet x^2 mit einem Lambda-Ausdruck
