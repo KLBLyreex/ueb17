@@ -2,6 +2,9 @@ package main;
 
 import java.util.function.IntPredicate;
 
+/**
+ * Interface MyFunctionErweiterungen mit default Implementierungen fuer conditionateInput bzw. output.
+ */
 public interface MyFunctionErweiterung extends MyFunction {
 
     default public MyFunctionErweiterung conditionateInput(IntPredicate ipred){
