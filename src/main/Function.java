@@ -133,6 +133,9 @@ public class Function {
         applyAndPrint(LambdaAusdruecke.fibonacciLambda, i, j);
     }
 
+    /**
+     * IntPredicate odd testet, ob ein Wert ungerade ist.
+     */
     IntPredicate odd = new IntPredicate() {
         @Override
         public boolean test(int value) {
@@ -140,16 +143,18 @@ public class Function {
         }
     };
 
-    public static void main(String[] args) {
-        Function ff = new Function(1,10);
-        ff.aufgabeF();
-    }
-    public void aufgabeE() {
+    /**
+     * xQuadratEven gibt die Quadrat Zahlen von Geraden Zahlen zurueck
+     */
+    public void xQuadratEven() {
         System.out.println("Lambda-Ausdruck fuer die Quadrat Zahl von geraden Zahlen: ");
         applyAndPrint(LambdaAusdruecke.xQuadratLambda2.conditionateInput(LambdaAusdruecke.even), i, j);
     }
 
-    public void aufgabeF() {
+    /**
+     * Fakultaet Even gibt Gerade und Ungerade Fakultaeten getrennt aus.
+     */
+    public void fakultaetEven() {
         System.out.println("Lambda-Ausdruck bei der die Fakultaet gerade ist: ");
         applyAndPrint(LambdaAusdruecke.xFakultaetLambda2.condiitionateOutput(LambdaAusdruecke.even), i, j);
 

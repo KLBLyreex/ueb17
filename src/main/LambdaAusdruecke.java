@@ -50,6 +50,9 @@ public class LambdaAusdruecke {
      */
     public static IntPredicate even = x -> x % 2 == 0;
 
+    /**
+     * Ueberprueft ob eine Zahl ungerade ist
+     */
     public static IntPredicate odd = x -> x % 2 != 0;
 
     /**

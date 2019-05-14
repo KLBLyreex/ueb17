@@ -118,10 +118,10 @@ public class FunctionDialog {
             function.fibonacci();
         }else
         if (funktion == evenQuadrat){
-            function.aufgabeE();
+            function.xQuadratEven();
         }else
         if (funktion == evenFakultaet){
-            function.aufgabeF();
+            function.fakultaetEven();
         }else
         if (funktion == ENDE){
             System.out.println("ENDE!");
